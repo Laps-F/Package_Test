@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 import codecs
 import os.path
 
@@ -27,5 +26,15 @@ setup(
     author='Mauro Santos',
     author_email='maurolaps@gmail.com',
     packages=['lib'],
-    install_requires=[]
+    install_requires=[
+        'numpy',
+        'ramdom',
+        'pickle',
+        'tensorflow',
+        'datetime',
+        'sklearn.utils',
+        'sklearn.metrics',
+        'deap',
+        'tcn'
+    ]
 )
