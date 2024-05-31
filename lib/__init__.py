@@ -5,6 +5,6 @@ __all__ = [
     'eaSimpleBest'
 ]
 
-__version__ = "1.0"
+__version__ = "1.1"
 __author__ = 'Mauro Santos'
 __credits__ = 'Intelligent Systems Computing Laboratory (CSILab)'

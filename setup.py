@@ -28,13 +28,5 @@ setup(
     packages=['lib'],
     install_requires=[
         'numpy',
-        'ramdom',
-        'pickle',
-        'tensorflow',
-        'datetime',
-        'sklearn.utils',
-        'sklearn.metrics',
-        'deap',
-        'tcn'
     ]
 )
