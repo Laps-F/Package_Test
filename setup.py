@@ -28,5 +28,6 @@ setup(
     packages=['lib'],
     install_requires=[
         'numpy',
+        'deap'
     ]
 )
