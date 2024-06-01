@@ -106,7 +106,7 @@ def map_range(value, leftMin, leftMax, rightMin, rightMax):
     '''
     mapear entre um range para outro
     '''
-    
+    print(var_global)
     leftSpan = leftMax - leftMin
     rightSpan = rightMax - rightMin
 
