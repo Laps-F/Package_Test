@@ -503,6 +503,8 @@ def map_range(value, leftMin, leftMax, rightMin, rightMax):
 # _pop_size = 30
 # _max_gen_per_10 = 4
 
+var_global = 5
+
 # toolbox = prepare_toolbox(evaluate_individual
 #                         , number_of_variables,
 #                         bounds_low, bounds_up,_pop_size)
