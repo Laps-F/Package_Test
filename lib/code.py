@@ -15,7 +15,6 @@ import numpy
 
 var_global = 10000
 
-
 # def prepare_toolbox(problem_instance, number_of_variables, bounds_low, bounds_up, pop_size):
 #     '''
 #     Prepara o toolbox DEAP
@@ -108,6 +107,8 @@ def map_range(value, leftMin, leftMax, rightMin, rightMax):
     '''
     mapear entre um range para outro
     '''
+    print(var_global)
+    var_global = "atualizadno o tipo da variavel"
     print(var_global)
     leftSpan = leftMax - leftMin
     rightSpan = rightMax - rightMin
