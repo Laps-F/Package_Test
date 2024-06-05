@@ -13,6 +13,8 @@ import numpy
 # from deap import base, tools, creator
 # from tcn import TCN
 
+var_global = 10000
+
 
 # def prepare_toolbox(problem_instance, number_of_variables, bounds_low, bounds_up, pop_size):
 #     '''
@@ -503,7 +505,6 @@ def map_range(value, leftMin, leftMax, rightMin, rightMax):
 # _pop_size = 30
 # _max_gen_per_10 = 4
 
-var_global = 5
 
 # toolbox = prepare_toolbox(evaluate_individual
 #                         , number_of_variables,
