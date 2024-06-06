@@ -1,10 +1,9 @@
-from lib import code, eaSimpleBest
+from lib import code
 
 __all__ = [
     'code',
-    'eaSimpleBest'
 ]
 
-__version__ = "1.4"
+__version__ = "1.5"
 __author__ = 'Mauro Santos'
 __credits__ = 'Intelligent Systems Computing Laboratory (CSILab)'
