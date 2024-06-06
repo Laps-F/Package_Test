@@ -731,7 +731,7 @@ def ga(toolbox, verbose=False, stats= None, checkpoint = None, ind=[False]):
             break
     return population, logbook, hof
 
-def main(X_train, X_test, Y_train, Y_test, ck):
+def main(X_train, X_test, Y_train, Y_test):
     global x_train, x_test, y_train, y_test
     x_train, x_test, y_train, y_test = X_train, X_test, Y_train, Y_test
     '''
@@ -770,4 +770,4 @@ def main(X_train, X_test, Y_train, Y_test, ck):
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("max", numpy.max, axis=0)
 
-    res, logbook, hof = ga(toolbox, verbose=False, stats= stats, checkpoint = ck, ind=[])
+    res, logbook, hof = ga(toolbox, verbose=False, stats= stats, ind=[])
