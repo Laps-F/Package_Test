@@ -731,9 +731,28 @@ def ga(toolbox, verbose=False, stats= None, checkpoint = None, ind=[False]):
             break
     return population, logbook, hof
 
-def main(X_train, X_test, Y_train, Y_test):
+def main(X_train:numpy.ndarray, X_test:numpy.ndarray, Y_train:numpy.ndarray, Y_test:numpy.ndarray, num_dense_layers=4, bounds_low=0, bounds_up=1, pop_size=30, max_gen=40,):
+    """
+     Parâmetros:
+    - X_train: numpy.ndarray, Conjunto de dados de treinamento.
+    - X_test: numpy.ndarray, Conjunto de dados de teste.
+    - Y_train: numpy.ndarray, Labels do conjunto de treinamento.
+    - Y_test: numpy.ndarray, Labels do conjunto de teste.
+    - num_dense_layers: int, Número de camadas densas na rede neural. Default é 4.
+    - bounds_low: float, Limite inferior de variação das váriaveis. Default é 0.
+    - bounds_up: float, Limite superior de variação das váriaveis. Default é 1.
+    - pop_size: int, Tamanho da população. Default é 30.
+    - max_gen: int, Número máximo de gerações (de 10 em 10). Default é 40.
+
+    Retorna:
+    - res: Resultado da execução do algoritmo genético.
+    - logbook: Log do processo evolutivo.
+    - hof: Hall of Fame dos melhores indivíduos.
+    """
+
     global x_train, x_test, y_train, y_test
     x_train, x_test, y_train, y_test = X_train, X_test, Y_train, Y_test
+
     '''
     Colocando o objetivo para nosso problema: maximizar F1
     '''
@@ -742,27 +761,16 @@ def main(X_train, X_test, Y_train, Y_test):
                 fitness=creator.FitnessMax)
 
     '''
-    Definindo númedo de camadas CNN e Dense.
-    '''
-    num_dense_layers = 4
-
-    '''
     Calculando o número de variáveis.
     '''
     number_of_variables = 2 + 11 + 4 + num_dense_layers*5 + 1 #Atention, TCN, convlayers, lstm, denselayers, optimizer
 
-    bounds_low, bounds_up = 0, 1 # valores sao remapeados em decode
-
     '''
-    Definindo o tamanho da população e a quantidade de gerações (de 10 em 10).
+    Preparando a toolbox
     '''
-    _pop_size = 30
-    _max_gen_per_10 = 4
-
-
     toolbox = prepare_toolbox(evaluate_individual
                             , number_of_variables,
-                            bounds_low, bounds_up,_pop_size)
+                            bounds_low, bounds_up,pop_size)
 
     '''
     criando uma instância `Statistics` para armazenar as populações em cada iteração.
@@ -770,4 +778,9 @@ def main(X_train, X_test, Y_train, Y_test):
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("max", numpy.max, axis=0)
 
+    '''
+    Executando o algoritmo genético
+    '''
     res, logbook, hof = ga(toolbox, verbose=False, stats= stats, ind=[])
+
+    return res, logbook, hof
